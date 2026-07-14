@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>O nama — Boni Caffe</title>
+<link rel="stylesheet" href="_ds/broadsheet-b58e594a-7314-47a3-a799-a774d63f1d69/styles.css">
+<script src="_ds/broadsheet-b58e594a-7314-47a3-a799-a774d63f1d69/_ds_bundle.js"></script>
+</helmet>
+<x-import component-from-global-scope="image-slot" from="./image-slot.js" hint-size="0,0" style="display:none;width:0;height:0"></x-import>
+
+<div style="min-height:100vh;display:flex;flex-direction:column">
+
+<nav class="nav" style="position:relative;padding-inline:clamp(20px,5vw,72px)">
+  <a href="Pocetna.dc.html" class="nav-brand" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:inherit">
+    <img src="assets/boni-caffe-logo.png" alt="Boni Caffe" style="width:36px;height:36px;border-radius:50%;display:block;object-fit:cover" />
+    <span>Boni Caffe</span>
+  </a>
+  <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+    <a href="Pocetna.dc.html">Početna</a>
+    <a href="Meni.dc.html">Meni</a>
+    <a href="Onama.dc.html" aria-current="page">O nama</a>
+    <a href="Kontakt.dc.html">Kontakt</a>
+  </sc-if>
+  <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+    <button type="button" class="btn btn-icon" aria-label="Meni" onClick="{{ toggleMenu }}">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+  </sc-if>
+  <sc-if value="{{ menuVisible }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;top:100%;left:0;right:0;background:var(--color-bg);box-shadow:var(--shadow-md);display:flex;flex-direction:column;padding:15px clamp(20px,5vw,72px) 20px;gap:15px;z-index:20">
+      <a href="Pocetna.dc.html" onClick="{{ closeMenu }}">Početna</a>
+      <a href="Meni.dc.html" onClick="{{ closeMenu }}">Meni</a>
+      <a href="Onama.dc.html" aria-current="page" onClick="{{ closeMenu }}">O nama</a>
+      <a href="Kontakt.dc.html" onClick="{{ closeMenu }}">Kontakt</a>
+    </div>
+  </sc-if>
+</nav>
+
+<div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,72px);width:100%;flex:1" data-screen-label="O nama">
+
+  <section style="padding:calc(3.5*28px) 0 calc(1.5*28px)">
+    <span style="display:block;font-size:13px;line-height:14px;letter-spacing:0.08em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 70%, transparent);margin:0 0 14px">O nama</span>
+    <h1 style="font-family:var(--font-heading);font-weight:600;font-size:clamp(38px,5vw,58px);line-height:1.1;letter-spacing:-0.02em;margin:0">Priča iza šoljice</h1>
+    <p style="font-size:17px;line-height:28px;max-width:60ch;margin:26px 0 0;color:color-mix(in srgb, var(--color-text) 82%, transparent);text-align:justify;hyphens:auto">Boni Caffe je otvoren sa idejom jednostavnom koliko i dobra kafa: napraviti mesto gde je svako dobrodošao. Počeli smo kao mali kutak u susedstvu, a danas smo deo jutarnje rutine mnogih gostiju koji dolaze po istu šoljicu i isti osmeh.</p>
+  </section>
+
+  <section style="padding:calc(2*28px) 0 calc(3*28px);display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:28px 64px;align-items:center">
+    <figure class="halftone" style="margin:0;aspect-ratio:4/3;border-radius:var(--radius-lg)">
+      <image-slot id="onama-tim" shape="rounded" radius="16" src="assets/coffee-branded.png" placeholder="Fotografija tima / enterijera"></image-slot>
+    </figure>
+    <div>
+      <h2 style="font-family:var(--font-heading);font-weight:600;font-size:32px;line-height:42px;letter-spacing:-0.015em;margin:0">Susedski kutak, svakog dana</h2>
+      <p style="font-size:15.5px;line-height:28px;color:color-mix(in srgb, var(--color-text) 78%, transparent);margin:27px 0 0;text-align:justify;hyphens:auto">Trudimo se da svaki gost oseti da je svratio kod prijatelja — uz pažljivo pripremljenu kafu i piće, u prostoru koji poziva da ostanete malo duže.</p>
+    </div>
+  </section>
+
+  <section style="padding:calc(1*28px) 0 calc(2.5*28px)">
+    <span style="display:block;font-size:13px;line-height:14px;letter-spacing:0.08em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 70%, transparent);margin:0 0 14px">Šta nas pokreće</span>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:42px 56px;margin-top:14px">
+      <div>
+        <h3 style="font-family:var(--font-heading);font-weight:600;font-size:24px;line-height:28px;letter-spacing:-0.01em;margin:0">Kvalitet</h3>
+        <p style="font-size:15.5px;line-height:28px;margin:27px 0 0;color:color-mix(in srgb, var(--color-text) 78%, transparent);text-align:justify;hyphens:auto">Zrna, mleko i sastojke biramo pažljivo — bez prečica, sa jasnim standardom u svakoj šoljici.</p>
+      </div>
+      <div>
+        <h3 style="font-family:var(--font-heading);font-weight:600;font-size:24px;line-height:28px;letter-spacing:-0.01em;margin:0">Zajednica</h3>
+        <p style="font-size:15.5px;line-height:28px;margin:27px 0 0;color:color-mix(in srgb, var(--color-text) 78%, transparent);text-align:justify;hyphens:auto">Rado ugostimo susede, studente i kolege na sastanku — mesto je uvek otvoreno za razgovor.</p>
+      </div>
+      <div>
+        <h3 style="font-family:var(--font-heading);font-weight:600;font-size:24px;line-height:28px;letter-spacing:-0.01em;margin:0">Domaćinstvo</h3>
+        <p style="font-size:15.5px;line-height:28px;margin:27px 0 0;color:color-mix(in srgb, var(--color-text) 78%, transparent);text-align:justify;hyphens:auto">Svaku šoljicu i piće spremamo lično, sa pažnjom kakvu biste očekivali u svom domu.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:calc(2.5*28px) 0 calc(3*28px)">
+    <figure style="margin:0">
+      <blockquote style="font-family:var(--font-heading);font-style:italic;font-weight:400;font-size:clamp(24px,2.6vw,34px);line-height:42px;letter-spacing:-0.01em;max-width:34ch;margin:0;text-indent:-0.475em">“Dolazim skoro svaki dan — osećaj je kao da svraćam kod prijatelja.”</blockquote>
+      <figcaption style="font-size:15.5px;line-height:28px;color:color-mix(in srgb, var(--color-text) 70%, transparent);margin:42px 0 0;text-indent:-1.045em">— Marko, sused</figcaption>
+    </figure>
+  </section>
+
+</div>
+
+<footer style="padding:28px clamp(20px,5vw,72px);font-size:13px;line-height:28px;color:color-mix(in srgb, var(--color-text) 70%, transparent);max-width:1200px;margin:0 auto;width:100%">© 2026 Boni Caffe. Sva prava zadržana.</footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { menuOpen: false, isMobile: (typeof window !== "undefined" && window.innerWidth <= 720) };
+
+  componentDidMount() {
+    this._onResize = () => this.setState({ isMobile: window.innerWidth <= 720, menuOpen: window.innerWidth <= 720 ? this.state.menuOpen : false });
+    window.addEventListener("resize", this._onResize);
+  }
+
+  componentWillUnmount() {
+    if (this._onResize) window.removeEventListener("resize", this._onResize);
+  }
+
+  renderVals() {
+    return {
+      isMobile: this.state.isMobile,
+      isDesktop: !this.state.isMobile,
+      menuVisible: this.state.isMobile && this.state.menuOpen,
+      toggleMenu: () => this.setState((s) => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false }),
+    };
+  }
+}
+
+</script>
+</body>
+</html>
