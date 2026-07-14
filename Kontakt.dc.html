@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Kontakt — Boni Caffe</title>
+<link rel="stylesheet" href="_ds/broadsheet-b58e594a-7314-47a3-a799-a774d63f1d69/styles.css">
+<script src="_ds/broadsheet-b58e594a-7314-47a3-a799-a774d63f1d69/_ds_bundle.js"></script>
+</helmet>
+<x-import component-from-global-scope="image-slot" from="./image-slot.js" hint-size="0,0" style="display:none;width:0;height:0"></x-import>
+
+<div style="min-height:100vh;display:flex;flex-direction:column">
+
+<nav class="nav" style="position:relative;padding-inline:clamp(20px,5vw,72px)">
+  <a href="Pocetna.dc.html" class="nav-brand" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:inherit">
+    <img src="assets/boni-caffe-logo.png" alt="Boni Caffe" style="width:36px;height:36px;border-radius:50%;display:block;object-fit:cover" />
+    <span>Boni Caffe</span>
+  </a>
+  <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+    <a href="Pocetna.dc.html">Početna</a>
+    <a href="Meni.dc.html">Meni</a>
+    <a href="Onama.dc.html">O nama</a>
+    <a href="Kontakt.dc.html" aria-current="page">Kontakt</a>
+  </sc-if>
+  <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+    <button type="button" class="btn btn-icon" aria-label="Meni" onClick="{{ toggleMenu }}">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+  </sc-if>
+  <sc-if value="{{ menuVisible }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;top:100%;left:0;right:0;background:var(--color-bg);box-shadow:var(--shadow-md);display:flex;flex-direction:column;padding:15px clamp(20px,5vw,72px) 20px;gap:15px;z-index:20">
+      <a href="Pocetna.dc.html" onClick="{{ closeMenu }}">Početna</a>
+      <a href="Meni.dc.html" onClick="{{ closeMenu }}">Meni</a>
+      <a href="Onama.dc.html" onClick="{{ closeMenu }}">O nama</a>
+      <a href="Kontakt.dc.html" aria-current="page" onClick="{{ closeMenu }}">Kontakt</a>
+    </div>
+  </sc-if>
+</nav>
+
+<div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,72px);width:100%;flex:1" data-screen-label="Kontakt">
+
+  <section style="padding:calc(3.5*28px) 0 calc(1.5*28px)">
+    <span style="display:block;font-size:13px;line-height:14px;letter-spacing:0.08em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 70%, transparent);margin:0 0 14px">Kontakt</span>
+    <h1 style="font-family:var(--font-heading);font-weight:600;font-size:clamp(38px,5vw,58px);line-height:1.1;letter-spacing:-0.02em;margin:0">Svratite kod nas</h1>
+    <p style="font-size:17px;line-height:28px;max-width:58ch;margin:26px 0 0;color:color-mix(in srgb, var(--color-text) 82%, transparent)">Rado ćemo vas ugostiti — pronađite nas, pozovite ili nam pišite.</p>
+  </section>
+
+  <section style="padding:calc(1.5*28px) 0 calc(2.5*28px);display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:28px 64px;align-items:start">
+    <div>
+      <h2 style="font-family:var(--font-heading);font-weight:600;font-size:24px;line-height:28px;margin:0 0 14px">Radno vreme</h2>
+      <table class="table" style="max-width:420px">
+        <tbody>
+          <tr><td>Ponedeljak – Četvrtak</td><td>07 – 24h</td></tr>
+          <tr><td>Petak</td><td>07 – 01h</td></tr>
+          <tr><td>Subota</td><td>08 – 01h</td></tr>
+          <tr><td>Nedelja</td><td>09 – 24h</td></tr>
+        </tbody>
+      </table>
+
+      <h2 style="font-family:var(--font-heading);font-weight:600;font-size:24px;line-height:28px;margin:42px 0 14px">Podaci</h2>
+      <p style="font-size:15.5px;line-height:28px;margin:0;color:color-mix(in srgb, var(--color-text) 82%, transparent)">Save Kovačevića 1, Kragujevac<br/>Telefon: 011 123 456<br/>Email: <a href="mailto:info@bonicaffe.rs" style="color:var(--color-accent-700)">info@bonicaffe.rs</a></p>
+      <p style="font-size:15.5px;line-height:28px;margin:14px 0 0;color:color-mix(in srgb, var(--color-text) 82%, transparent)">Pet friendly — vaši ljubimci su uvek dobrodošli.</p>
+    </div>
+
+    <figure class="halftone" style="margin:0;aspect-ratio:3/4;border-radius:var(--radius-lg)">
+      <image-slot id="kontakt-mapa" shape="rounded" radius="16" fit="contain" src="assets/interior.png" placeholder="Fotografija lokala"></image-slot>
+    </figure>
+  </section>
+
+  <section style="padding:calc(1*28px) 0 calc(3*28px);max-width:560px">
+    <h2 style="font-family:var(--font-heading);font-weight:600;font-size:24px;line-height:28px;margin:0 0 20px">Pošaljite poruku</h2>
+    <div style="display:flex;flex-direction:column;gap:15px">
+      <div class="field">
+        <label for="ime">Ime</label>
+        <input id="ime" class="input" type="text" placeholder="Vaše ime" value="{{ name }}" onChange="{{ onNameChange }}" />
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" class="input" type="email" placeholder="vas@email.com" value="{{ email }}" onChange="{{ onEmailChange }}" />
+      </div>
+      <div class="field">
+        <label for="poruka">Poruka</label>
+        <textarea id="poruka" class="input" rows="4" placeholder="Kako možemo pomoći?" value="{{ message }}" onChange="{{ onMessageChange }}"></textarea>
+      </div>
+      <button type="button" class="btn btn-primary btn-block" onClick="{{ onSubmit }}">{{ submitLabel }}</button>
+      <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+        <p style="font-size:13.5px;line-height:20px;color:var(--color-accent-700);margin:0">Hvala! Javićemo se uskoro.</p>
+      </sc-if>
+    </div>
+  </section>
+
+</div>
+
+<footer style="padding:28px clamp(20px,5vw,72px);font-size:13px;line-height:28px;color:color-mix(in srgb, var(--color-text) 70%, transparent);max-width:1200px;margin:0 auto;width:100%">© 2026 Boni Caffe. Sva prava zadržana.</footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { name: "", email: "", message: "", submitted: false, menuOpen: false, isMobile: (typeof window !== "undefined" && window.innerWidth <= 720) };
+
+  componentDidMount() {
+    this._onResize = () => this.setState({ isMobile: window.innerWidth <= 720, menuOpen: window.innerWidth <= 720 ? this.state.menuOpen : false });
+    window.addEventListener("resize", this._onResize);
+  }
+
+  componentWillUnmount() {
+    if (this._onResize) window.removeEventListener("resize", this._onResize);
+  }
+
+  renderVals() {
+    return {
+      name: this.state.name,
+      email: this.state.email,
+      message: this.state.message,
+      submitted: this.state.submitted,
+      submitLabel: this.state.submitted ? "Poslato" : "Pošalji",
+      onNameChange: (e) => this.setState({ name: e.target.value }),
+      onEmailChange: (e) => this.setState({ email: e.target.value }),
+      onMessageChange: (e) => this.setState({ message: e.target.value }),
+      onSubmit: () => this.setState({ submitted: true }),
+      isMobile: this.state.isMobile,
+      isDesktop: !this.state.isMobile,
+      menuVisible: this.state.isMobile && this.state.menuOpen,
+      toggleMenu: () => this.setState((s) => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false }),
+    };
+  }
+}
+
+</script>
+</body>
+</html>

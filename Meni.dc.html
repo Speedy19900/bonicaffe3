@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Meni — Boni Caffe</title>
+<link rel="stylesheet" href="_ds/broadsheet-b58e594a-7314-47a3-a799-a774d63f1d69/styles.css">
+<script src="_ds/broadsheet-b58e594a-7314-47a3-a799-a774d63f1d69/_ds_bundle.js"></script>
+</helmet>
+<x-import component-from-global-scope="image-slot" from="./image-slot.js" hint-size="0,0" style="display:none;width:0;height:0"></x-import>
+
+<div style="min-height:100vh;display:flex;flex-direction:column">
+
+<nav class="nav" style="position:relative;padding-inline:clamp(20px,5vw,72px)">
+  <a href="Pocetna.dc.html" class="nav-brand" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:inherit">
+    <img src="assets/boni-caffe-logo.png" alt="Boni Caffe" style="width:36px;height:36px;border-radius:50%;display:block;object-fit:cover" />
+    <span>Boni Caffe</span>
+  </a>
+  <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+    <a href="Pocetna.dc.html">Početna</a>
+    <a href="Meni.dc.html" aria-current="page">Meni</a>
+    <a href="Onama.dc.html">O nama</a>
+    <a href="Kontakt.dc.html">Kontakt</a>
+  </sc-if>
+  <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+    <button type="button" class="btn btn-icon" aria-label="Meni" onClick="{{ toggleMenu }}">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+  </sc-if>
+  <sc-if value="{{ menuVisible }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;top:100%;left:0;right:0;background:var(--color-bg);box-shadow:var(--shadow-md);display:flex;flex-direction:column;padding:15px clamp(20px,5vw,72px) 20px;gap:15px;z-index:20">
+      <a href="Pocetna.dc.html" onClick="{{ closeMenu }}">Početna</a>
+      <a href="Meni.dc.html" aria-current="page" onClick="{{ closeMenu }}">Meni</a>
+      <a href="Onama.dc.html" onClick="{{ closeMenu }}">O nama</a>
+      <a href="Kontakt.dc.html" onClick="{{ closeMenu }}">Kontakt</a>
+    </div>
+  </sc-if>
+</nav>
+
+<div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,72px);width:100%;flex:1" data-screen-label="Meni">
+
+  <section style="padding:calc(3.5*28px) 0 calc(2*28px);display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:28px 64px;align-items:center">
+    <div>
+      <span style="display:block;font-size:13px;line-height:14px;letter-spacing:0.08em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 70%, transparent);margin:0 0 14px">Meni</span>
+      <h1 style="font-family:var(--font-heading);font-weight:600;font-size:clamp(38px,5vw,58px);line-height:1.1;letter-spacing:-0.02em;margin:0">Šta pijemo</h1>
+      <p style="font-size:17px;line-height:28px;max-width:58ch;margin:26px 0 0;color:color-mix(in srgb, var(--color-text) 82%, transparent)">Kafa, čaj i topli napici pripremljeni sa pažnjom, uz izbor osvežavajućih pića. Cene su izražene u dinarima.</p>
+    </div>
+    <figure class="halftone" style="margin:0;aspect-ratio:3/4;border-radius:var(--radius-lg)">
+      <image-slot id="meni-hero" shape="rounded" radius="16" src="assets/hot-chocolate.png" placeholder="Fotografija pića"></image-slot>
+    </figure>
+  </section>
+
+  <section style="padding:calc(2*28px) 0 28px">
+    <h2 style="font-family:var(--font-heading);font-weight:600;font-size:24px;line-height:28px;margin:0 0 14px">Espresso baza</h2>
+    <div style="display:grid;grid-template-columns:1fr;gap:8px;max-width:520px">
+      <p style="display:flex;align-items:baseline;gap:8px;margin:0;font-size:15.5px;line-height:28px"><span style="white-space:nowrap">Espresso</span><span style="flex:1;min-width:20px;align-self:flex-end;margin-bottom:0.34em;border-bottom:1px dotted color-mix(in srgb, var(--color-text) 45%, transparent)"></span><span style="font-family:var(--font-heading);font-weight:600;font-size:17px">150</span></p>
+      <p style="display:flex;align-items:baseline;gap:8px;margin:0;font-size:15.5px;line-height:28px"><span style="white-space:nowrap">Duplo espresso</span><span style="flex:1;min-width:20px;align-self:flex-end;margin-bottom:0.34em;border-bottom:1px dotted color-mix(in srgb, var(--color-text) 45%, transparent)"></span><span style="font-family:var(--font-heading);font-weight:600;font-size:17px">190</span></p>
+      <p style="display:flex;align-items:baseline;gap:8px;margin:0;font-size:15.5px;line-height:28px"><span style="white-space:nowrap">Makijato</span><span style="flex:1;min-width:20px;align-self:flex-end;margin-bottom:0.34em;border-bottom:1px dotted color-mix(in srgb, var(--color-text) 45%, transparent)"></span><span style="font-family:var(--font-heading);font-weight:600;font-size:17px">170</span></p>
+      <p style="display:flex;align-items:baseline;gap:8px;margin:0;font-size:15.5px;line-height:28px"><span style="white-space:nowrap">Kapućino</span><span style="flex:1;min-width:20px;align-self:flex-end;margin-bottom:0.34em;border-bottom:1px dotted color-mix(in srgb, var(--color-text) 45%, transparent)"></span><span style="font-family:var(--font-heading);font-weight:600;font-size:17px">220</span></p>
+      <p style="display:flex;align-items:baseline;gap:8px;margin:0;font-size:15.5px;line-height:28px"><span style="white-space:nowrap">Late</span><span style="flex:1;min-width:20px;align-self:flex-end;margin-bottom:0.34em;border-bottom:1px dotted color-mix(in srgb, var(--color-text) 45%, transparent)"></span><span style="font-family:var(--font-heading);font-weight:600;font-size:17px">230</span></p>
+      <p style="display:flex;align-items:baseline;gap:8px;margin:0;font-size:15.5px;line-height:28px"><span style="white-space:nowrap">Flat white</span><span style="flex:1;min-width:20px;align-self:flex-end;margin-bottom:0.34em;border-bottom:1px dotted color-mix(in srgb, var(--color-text) 45%, transparent)"></span><span style="font-family:var(--font-heading);font-weight:600;font-size:17px">240</span></p>
+    </div>
+  </section>
+
+  <section style="padding:28px 0">
+    <h2 style="font-family:var(--font-heading);font-weight:600;font-size:24px;line-height:28px;margin:0 0 14px">Filter i hladno</h2>
+    <div style="display:grid;grid-template-columns:1fr;gap:8px;max-width:520px">
+      <p style="display:flex;align-items:baseline;gap:8px;margin:0;font-size:15.5px;line-height:28px"><span style="white-space:nowrap">Filter kafa</span><span style="flex:1;min-width:20px;align-self:flex-end;margin-bottom:0.34em;border-bottom:1px dotted color-mix(in srgb, var(--color-text) 45%, transparent)"></span><span style="font-family:var(--font-heading);font-weight:600;font-size:17px">200</span></p>
+      <p style="display:flex;align-items:baseline;gap:8px;margin:0;font-size:15.5px;line-height:28px"><span style="white-space:nowrap">Cold brew</span><span style="flex:1;min-width:20px;align-self:flex-end;margin-bottom:0.34em;border-bottom:1px dotted color-mix(in srgb, var(--color-text) 45%, transparent)"></span><span style="font-family:var(--font-heading);font-weight:600;font-size:17px">260</span></p>
+      <p style="display:flex;align-items:baseline;gap:8px;margin:0;font-size:15.5px;line-height:28px"><span style="white-space:nowrap">Ledena kafa</span><span style="flex:1;min-width:20px;align-self:flex-end;margin-bottom:0.34em;border-bottom:1px dotted color-mix(in srgb, var(--color-text) 45%, transparent)"></span><span style="font-family:var(--font-heading);font-weight:600;font-size:17px">250</span></p>
+    </div>
+  </section>
+
+  <section style="padding:28px 0">
+    <h2 style="font-family:var(--font-heading);font-weight:600;font-size:24px;line-height:28px;margin:0 0 14px">Čaj i topli napici</h2>
+    <div style="display:grid;grid-template-columns:1fr;gap:8px;max-width:520px">
+      <p style="display:flex;align-items:baseline;gap:8px;margin:0;font-size:15.5px;line-height:28px"><span style="white-space:nowrap">Crni čaj</span><span style="flex:1;min-width:20px;align-self:flex-end;margin-bottom:0.34em;border-bottom:1px dotted color-mix(in srgb, var(--color-text) 45%, transparent)"></span><span style="font-family:var(--font-heading);font-weight:600;font-size:17px">180</span></p>
+      <p style="display:flex;align-items:baseline;gap:8px;margin:0;font-size:15.5px;line-height:28px"><span style="white-space:nowrap">Voćni čaj</span><span style="flex:1;min-width:20px;align-self:flex-end;margin-bottom:0.34em;border-bottom:1px dotted color-mix(in srgb, var(--color-text) 45%, transparent)"></span><span style="font-family:var(--font-heading);font-weight:600;font-size:17px">180</span></p>
+      <p style="display:flex;align-items:baseline;gap:8px;margin:0;font-size:15.5px;line-height:28px"><span style="white-space:nowrap">Vruća čokolada</span><span style="flex:1;min-width:20px;align-self:flex-end;margin-bottom:0.34em;border-bottom:1px dotted color-mix(in srgb, var(--color-text) 45%, transparent)"></span><span style="font-family:var(--font-heading);font-weight:600;font-size:17px">250</span></p>
+    </div>
+  </section>
+
+  <section style="padding:28px 0 calc(2.5*28px)">
+    <h2 style="font-family:var(--font-heading);font-weight:600;font-size:24px;line-height:28px;margin:0 0 14px">Pivo i osvežavajuća pića</h2>
+    <div style="display:grid;grid-template-columns:1fr;gap:8px;max-width:520px">
+      <p style="display:flex;align-items:baseline;gap:8px;margin:0;font-size:15.5px;line-height:28px"><span style="white-space:nowrap">Pivo, točeno</span><span style="flex:1;min-width:20px;align-self:flex-end;margin-bottom:0.34em;border-bottom:1px dotted color-mix(in srgb, var(--color-text) 45%, transparent)"></span><span style="font-family:var(--font-heading);font-weight:600;font-size:17px">280</span></p>
+      <p style="display:flex;align-items:baseline;gap:8px;margin:0;font-size:15.5px;line-height:28px"><span style="white-space:nowrap">Pivo, flaširano</span><span style="flex:1;min-width:20px;align-self:flex-end;margin-bottom:0.34em;border-bottom:1px dotted color-mix(in srgb, var(--color-text) 45%, transparent)"></span><span style="font-family:var(--font-heading);font-weight:600;font-size:17px">280</span></p>
+      <p style="display:flex;align-items:baseline;gap:8px;margin:0;font-size:15.5px;line-height:28px"><span style="white-space:nowrap">Somersby</span><span style="flex:1;min-width:20px;align-self:flex-end;margin-bottom:0.34em;border-bottom:1px dotted color-mix(in srgb, var(--color-text) 45%, transparent)"></span><span style="font-family:var(--font-heading);font-weight:600;font-size:17px">300</span></p>
+      <p style="display:flex;align-items:baseline;gap:8px;margin:0;font-size:15.5px;line-height:28px"><span style="white-space:nowrap">Coca-Cola</span><span style="flex:1;min-width:20px;align-self:flex-end;margin-bottom:0.34em;border-bottom:1px dotted color-mix(in srgb, var(--color-text) 45%, transparent)"></span><span style="font-family:var(--font-heading);font-weight:600;font-size:17px">220</span></p>
+      <p style="display:flex;align-items:baseline;gap:8px;margin:0;font-size:15.5px;line-height:28px"><span style="white-space:nowrap">Kisela voda</span><span style="flex:1;min-width:20px;align-self:flex-end;margin-bottom:0.34em;border-bottom:1px dotted color-mix(in srgb, var(--color-text) 45%, transparent)"></span><span style="font-family:var(--font-heading);font-weight:600;font-size:17px">180</span></p>
+    </div>
+  </section>
+
+</div>
+
+<footer style="padding:28px clamp(20px,5vw,72px);font-size:13px;line-height:28px;color:color-mix(in srgb, var(--color-text) 70%, transparent);max-width:1200px;margin:0 auto;width:100%">© 2026 Boni Caffe. Sva prava zadržana.</footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { menuOpen: false, isMobile: (typeof window !== "undefined" && window.innerWidth <= 720) };
+
+  componentDidMount() {
+    this._onResize = () => this.setState({ isMobile: window.innerWidth <= 720, menuOpen: window.innerWidth <= 720 ? this.state.menuOpen : false });
+    window.addEventListener("resize", this._onResize);
+  }
+
+  componentWillUnmount() {
+    if (this._onResize) window.removeEventListener("resize", this._onResize);
+  }
+
+  renderVals() {
+    return {
+      isMobile: this.state.isMobile,
+      isDesktop: !this.state.isMobile,
+      menuVisible: this.state.isMobile && this.state.menuOpen,
+      toggleMenu: () => this.setState((s) => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false }),
+    };
+  }
+}
+
+</script>
+</body>
+</html>
